@@ -1,20 +1,17 @@
-// import Forms from "./component/Forms";
-// import Updown from "./component/Updown";
-// import UserData from "./component/UserData";
-// import Muiform from "./component/Muiform";
+import Forms from "./component/Forms";
+import Updown from "./component/Updown";
 import Users from "./component/Users";
-import Mockup from "./component/Mockup"
+import Mockup from "./component/mockup";
 
 function App() {
+  
   return (
     <>
-      <h1>hello world</h1>
-      {/* <Forms />
+      
+      <Forms />
       <Updown/>
-      <UserData/>
-      <Muiform/> */}
-      {/* <Users /> */}
-      <Mockup />
+      <Users />
+      <Mockup/>
     </>
   );
 }

@@ -1,6 +1,6 @@
 const initState = {
   loading: true,
-  user: '',
+  users: [],
   error: "",
 };
 const apiReducer = (state = initState, action: any) => {

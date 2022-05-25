@@ -6,7 +6,7 @@ return data
 }
 const getData1 =async (pageNo:any)=>{
     let {data} = await axios.get("https://reqres.in/api/users?page=" +pageNo)
-    return data;
+    return data
     }
 
 export {getData,getData1};

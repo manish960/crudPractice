@@ -1,12 +1,16 @@
 import { constant } from "../Constant/constant"
 
-export  const increment = ()=>{
-    return {
+export  const increment = ()=>async dispatch=>{
+    
+    dispatch({
         type:constant.INCREMENT
-    }
+    })
+ 
 }
-export const decrement=()=>{
-    return {
+
+
+export const decrement=()=>async dispatch=>{
+    dispatch({
         type:constant.DECREMENT
-    }
+    })
 }

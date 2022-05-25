@@ -14,7 +14,7 @@ import Button from '@mui/material/Button';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import EditIcon from '@mui/icons-material/Edit';
 import Pagination from '@mui/material/Pagination';
-import ReduxAction from "./../redux/action/mockup";
+import axios from "axios"
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -44,16 +44,18 @@ const Users = () => {
   const dispatch = useDispatch();
   const [page,setPage]=useState(1);
 
-  const handleChange1 = (event, value) => {
+  const handleChange = (event, value) => {
     setPage(value);
     console.log(value);
   };
 
+const handleDelete = async id =>{
+  await axios.delete(`https://reqres.in/api/users/${id}`  )
+}
   useEffect(()=>{
     console.log("testing");
     dispatch(fetchRequest(page));
-    dispatch(ReduxAction.fetchMockup())
-  },[dispatch,page]);
+  },[page]);
 
   return (
     <TableContainer component={Paper}>
@@ -77,12 +79,12 @@ const Users = () => {
               <StyledTableCell align="center">{data.first_name}</StyledTableCell>
               <StyledTableCell align="center">{data.last_name}</StyledTableCell>
               <StyledTableCell align="center"><Button variant="contained" style={{marginRight:'8px'}}><EditIcon/></Button>
-              <Button variant="contained" color="error" ><DeleteForeverIcon/></Button></StyledTableCell>
+              <Button variant="contained" color="error" onClick={()=>{handleDelete(data.id)}} ><DeleteForeverIcon/></Button></StyledTableCell>
             
             </StyledTableRow>
             
           ))):'no'}
-          <Pagination count={2} page={page} onChange={handleChange1} color="secondary" />
+          <Pagination count={3} page={page} onChange={handleChange}  />
         </TableBody>
       </Table>
     </TableContainer>
